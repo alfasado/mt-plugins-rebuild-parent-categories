@@ -1,0 +1,13 @@
+name: Rebuild Parent Categories
+id:   RebuildParentCategories
+key:  rebuildparentcategories
+version: 0.1
+author_link: https://alfasado.net/
+author_name: Alfasado Inc.
+l10n_class: RebuildParentCategories::L10N
+description: <__trans phrase="Rebuild category archives for any parent categories for the categories when the entry changes.">
+callbacks:
+    cms_post_save.entry: $rebuildparentcategories::RebuildParentCategories::Plugin::_rebuild_parent_categories
+    cms_post_delete.entry: $rebuildparentcategories::RebuildParentCategories::Plugin::_rebuild_parent_categories
+    scheduled_post_published: $rebuildparentcategories::RebuildParentCategories::Plugin::_rebuild_parent_categories
+
