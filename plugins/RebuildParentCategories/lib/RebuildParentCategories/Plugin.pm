@@ -13,6 +13,9 @@ sub _rebuild_parent_categories {
     if ( $entry->status == MT::Entry::RELEASE() ) {
         $rebuild = 1;
     }
+    if ( $cb->name eq 'scheduled_post_unpublished' ) {
+        $rebuild = 1;
+    }
     if ( defined ( $original ) ) {
         if ( $original->status != $entry->status ) {
             if ( ( $original->status == MT::Entry::RELEASE() ) ||
